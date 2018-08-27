@@ -1,0 +1,38 @@
+1、全局安装webpack和webpack-cli
+   npm install -g webpack webpack-cli
+2、创建项目工程，初始化生成package.json文件
+   npm install -y
+3、创建入口文件及index.html和webpack.config.js(注意presets后边要把所有依赖的包都写上，比如'env'和'react')
+   webpack4.x以'./src/index.js'作为入口，单单创建src文件而没有index.js文件仍然会报错
+4、在package.json中配置mode选项，就可以用npm run dev/build运行
+	"scripts": {
+		"dev": "webpack --mode development --watch",
+		"build": "webpack --mode production --watch"
+    },
+5、配置其他参数：
+   --progerss：会出现打包过程，有百分比进度条
+   --display-modules：会把所有打包的模块列出来
+   --display-reasons：会把打包的原因列出来
+6、loader的配置：安装babel，解析es6语法
+   npm install babel-loader babel-core babel-preset-env babel-preset-react-app@3 --save-dev
+7、项目中安装webpack(babel依赖)和webpack-cli(npm run dev需要)
+   npm install webpack webpack-cli --save-dev
+8、给项目安装react和react-dom
+   npm install react react-dom --save-dev
+   
+   安装到这里运行webpack或者npm run dev可以在src下生成bundle.js文件
+--------------------------------------------------------------------------------------------------------------
+
+6、配置热更新，自动刷新
+   npm install webpack-dev-serve --save-dev
+   没有实现热更新和自动刷新
+
+   解析css,安装style-loader和css-loader
+   npm install style-loader css-loader --save-dev
+ 、安装css文件依赖的loader
+   css-loader：使webpack可以处理css文件
+   style-loader：新建一个style标签，把css-loader处理过的文件放进去，然后插入到HTML标签中
+ 、两个css的loader使用方法:
+ .1 直接在文件前使用：require('style-loader!css-loader!../css/style.css');
+ .2 在命令行中使用：webpack --mode development --module-bind 'css=style-loader!css-loader' 
+   

@@ -1,0 +1,25 @@
+一、创建react项目
+1、npm init -y，全部默认
+2、安装react依赖的包):
+视频：npm install react react-dom babelify babel-preset-react --save 
+	  npm install babel-preset-es2015 --save 
+官网：npm install babel-cli@6 babel-preset-react-app@3（https://reactjs.org）
+安装视频安装会有部分文件好像下载不到，个人认为应该执行：
+npm install react react-dom babel-cli@6 babel-preset-react-app@3 --save
+npm install babel-preset-es2015 --save
+3、创建src/js/index.js和index.html文件，参考05-01项目
+4、react项目要运行，必须将所有包打包成的最终的js（浏览器不识别reactjs），这里使用webpack打包
+5、创建webpack.config.js，内容参考05-01项目
+6、分别在全局和项目安装webpack和webpack开发的服务器：
+   npm install -g webpack
+   npm install -g webpack-dev-server
+   npm install --g webpack-cli
+   npm install --save-dev webpack
+   npm install --save-dev webpack-dev-server
+   npm install --save-dev webpack-cli
+   npm install --save-dev -D babel-loader(babel-core、bael-preset-env这两样没装)
+7、执行webpack，即用webpack将所有的包打包为bundle.js，这个js文件才是html中应该引用的文件（执行webpack命令的时候，又提示安装webpack-command或webpack-cli，安装第一个显示失败，又装了第二个）
+8、执行webpack --watch，可以监视js文件有改变，会自动打包成bundle.js文件，页面刷新一下可以显示（页面没有实现自动刷新）
+9、新开一个窗口执行webpack-dev-server（不能关闭webpack --mode production/development --watch的窗口），会生成一个url：http://localhost:8080/webpack-dev-server/index.html，访问这个url，可以实现页面自动刷新
+10、为了直接可以访问http://localhost:8080就可以访问页面，可以给webpack-dev-server加参数，执行以下命令替代该命令
+   webpack-dev-server --contentbase src --inline --hot
