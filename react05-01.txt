@@ -22,4 +22,9 @@ npm install babel-preset-es2015 --save
 8、执行webpack --watch，可以监视js文件有改变，会自动打包成bundle.js文件，页面刷新一下可以显示（页面没有实现自动刷新）
 9、新开一个窗口执行webpack-dev-server（不能关闭webpack --mode production/development --watch的窗口），会生成一个url：http://localhost:8080/webpack-dev-server/index.html，访问这个url，可以实现页面自动刷新
 10、为了直接可以访问http://localhost:8080就可以访问页面，可以给webpack-dev-server加参数，执行以下命令替代该命令
-   webpack-dev-server --contentbase src --inline --hot
+   webpack-dev-server --contentBase src --inline --hot
+11、为了使窗口没有警告未设置模式，将
+"scripts": {  
+	"dev": "webpack --mode development --watch",  
+	"build": "webpack --mode production --watch"  
+  }, 添加到package.json中，命令行输入npm run dev代替webpack --watch
