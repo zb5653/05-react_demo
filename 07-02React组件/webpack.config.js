@@ -1,8 +1,8 @@
 /*
 * @Author: Administrator
 * @Date:   2018-08-21 23:59:56
-* @Last Modified by:   zhangbin
-* @Last Modified time: 2018-08-27 22:50:34
+* @Last Modified by:   Administrator
+* @Last Modified time: 2018-08-23 00:54:51
 */
 var webpack = require('webpack');
 var path = require('path');
@@ -35,7 +35,7 @@ module.exports = {
         port: 8080,             // 端口
         open: true,             // 自动打开浏览器
 		inline:true,
-        hot: true               // 开启热更新
+       // hot: true               // 开启热更新
     },
 	output: {
 		path: __dirname + "/src/",
