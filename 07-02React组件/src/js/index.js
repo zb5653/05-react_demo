@@ -1,13 +1,18 @@
-/*
-* @Author: Administrator
-* @Date:   2018-08-21 23:32:14
-* @Last Modified by:   zhangbin
-* @Last Modified time: 2018-08-27 22:57:37
-*/
 var React = require('react');
 var ReactDOM = require('react-dom');
+import ComponentHeader from './components/header.js';
+class Index extends React.Component {
+	render() {
+		return (
+			<div>
+				<ComponentHeader/>
+				<h2>页面的主体内容</h2>
+			</div>
+		);
+	}
+}
 
 ReactDOM.render(
-	<h1>Hello World12!</h1>,
+	<Index/>,
 	document.getElementById('example')
 );
